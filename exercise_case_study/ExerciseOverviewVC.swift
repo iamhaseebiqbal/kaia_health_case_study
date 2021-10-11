@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ExerciseOverviewVC.swift
 //  exercise_case_study
 //
 //  Created by Haseeb Iqbal on 11.10.21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExerciseOverviewVC: UIViewController {
 
     // For testability
     var manager: ExerciseSummaryManagerImpl = ExerciseSummaryManagerImpl() // [TODO] - make it private and set in `init`
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDataSource {
+extension ExerciseOverviewVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return manager.exercises.count
     }
@@ -51,7 +51,7 @@ extension ViewController: UITableViewDataSource {
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension ExerciseOverviewVC: UITableViewDelegate {
     
 }
 

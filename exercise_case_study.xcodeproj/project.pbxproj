@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D8C1DA3271428CE00F0AC13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C1DA2271428CE00F0AC13 /* AppDelegate.swift */; };
 		3D8C1DA5271428CE00F0AC13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C1DA4271428CE00F0AC13 /* SceneDelegate.swift */; };
-		3D8C1DA7271428CE00F0AC13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C1DA6271428CE00F0AC13 /* ViewController.swift */; };
+		3D8C1DA7271428CE00F0AC13 /* ExerciseOverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C1DA6271428CE00F0AC13 /* ExerciseOverviewVC.swift */; };
 		3D8C1DAA271428CE00F0AC13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8C1DA8271428CE00F0AC13 /* Main.storyboard */; };
 		3D8C1DAC271428CF00F0AC13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8C1DAB271428CF00F0AC13 /* Assets.xcassets */; };
 		3D8C1DAF271428CF00F0AC13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8C1DAD271428CF00F0AC13 /* LaunchScreen.storyboard */; };
@@ -43,7 +43,7 @@
 		3D8C1D9F271428CE00F0AC13 /* exercise_case_study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exercise_case_study.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8C1DA2271428CE00F0AC13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8C1DA4271428CE00F0AC13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D8C1DA6271428CE00F0AC13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D8C1DA6271428CE00F0AC13 /* ExerciseOverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseOverviewVC.swift; sourceTree = "<group>"; };
 		3D8C1DA9271428CE00F0AC13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D8C1DAB271428CF00F0AC13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D8C1DAE271428CF00F0AC13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 			children = (
 				3D8C1DA2271428CE00F0AC13 /* AppDelegate.swift */,
 				3D8C1DA4271428CE00F0AC13 /* SceneDelegate.swift */,
-				3D8C1DA6271428CE00F0AC13 /* ViewController.swift */,
+				3D8C1DA6271428CE00F0AC13 /* ExerciseOverviewVC.swift */,
 				3D8C1DA8271428CE00F0AC13 /* Main.storyboard */,
 				3D8C1DAB271428CF00F0AC13 /* Assets.xcassets */,
 				3D8C1DAD271428CF00F0AC13 /* LaunchScreen.storyboard */,
@@ -165,7 +165,6 @@
 				E444687025ABB35CF6A5B175 /* Pods-exercise_case_studyTests.debug.xcconfig */,
 				3FCB96EFC778DCA3324A2AB4 /* Pods-exercise_case_studyTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -371,7 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D8C1DA7271428CE00F0AC13 /* ViewController.swift in Sources */,
+				3D8C1DA7271428CE00F0AC13 /* ExerciseOverviewVC.swift in Sources */,
 				3D8C1DA3271428CE00F0AC13 /* AppDelegate.swift in Sources */,
 				3D8C1DA5271428CE00F0AC13 /* SceneDelegate.swift in Sources */,
 			);
