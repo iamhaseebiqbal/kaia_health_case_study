@@ -21,6 +21,8 @@ class ExerciseOverviewVC: UIViewController {
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "ExerciseOverviewCell", bundle: nil), forCellReuseIdentifier: ExerciseOverviewCell.reuseIdentifier)
+        tableView.tableFooterView = UIView()
     }
     
     @IBAction func startTraining(_ sender: UIButton) {
@@ -31,12 +33,15 @@ class ExerciseOverviewVC: UIViewController {
 
 extension ExerciseOverviewVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.exercises.count
+        return viewModel?.exercises.count ?? 0 // TODO
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aCell = UITableViewCell()
-        aCell.textLabel?.text = viewModel.exercises[indexPath.row].name
+        guard let aCell = tableView.dequeueReusableCell(withIdentifier: ExerciseOverviewCell.reuseIdentifier) as? ExerciseOverviewCell else {
+            return UITableViewCell()
+        }
+        aCell.configure(ExerciseOverviewCellVM(exercise: viewModel.exercises[indexPath.row], isMarkedAsFavorite: false)) // [TODO] fav state
+        // TODO [safe: ?]
         return aCell
     }
     
