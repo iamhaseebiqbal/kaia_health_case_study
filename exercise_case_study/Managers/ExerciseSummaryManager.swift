@@ -5,10 +5,12 @@ protocol ExerciseSummaryManager {
     func fetchExercise(completionHandler: @escaping ([Exercise]) -> Void)
     func markAsFavorite(_ exercise: Exercise)
     func removeFromFavorites(_ exercise: Exercise)
+    func isMarkedAsFavorite(_ exercise: Exercise) -> Bool
 }
 
 class ExerciseSummaryManagerImpl: ExerciseSummaryManager {
     var exercises: [Exercise] = []
+    private let userDefaultsKeyForFavorites = "favorites"
     
     func fetchExercise(completionHandler: @escaping ([Exercise]) -> Void) {
         guard let url = EndPoint.exercises.path.url else {
@@ -40,10 +42,21 @@ class ExerciseSummaryManagerImpl: ExerciseSummaryManager {
     }
     
     func markAsFavorite(_ exercise: Exercise) {
-        
+        let defaults = UserDefaults.standard
+        var favorites = defaults.array(forKey: userDefaultsKeyForFavorites) ?? []
+        favorites.append(exercise.id)
+        defaults.setValue(favorites, forKey: userDefaultsKeyForFavorites)
     }
     
     func removeFromFavorites(_ exercise: Exercise) {
-        
+        let defaults = UserDefaults.standard
+        var favorites = UserDefaults.standard.array(forKey: userDefaultsKeyForFavorites) as? [Int] ?? []
+        favorites.removeAll(where: { $0 == exercise.id })
+        defaults.setValue(favorites, forKey: userDefaultsKeyForFavorites)
+    }
+    
+    func isMarkedAsFavorite(_ exercise: Exercise) -> Bool {
+        let favorites = UserDefaults.standard.array(forKey: userDefaultsKeyForFavorites) as? [Int] ?? []
+        return favorites.contains(exercise.id) == true
     }
 }

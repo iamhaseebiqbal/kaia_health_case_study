@@ -26,6 +26,7 @@
 		3DECB03227144F0E001850D6 /* ExerciseOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DECB03027144F0E001850D6 /* ExerciseOverviewCell.xib */; };
 		3DECB03427145C20001850D6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB03327145C20001850D6 /* ImageCacheManager.swift */; };
 		3DECB03627145C45001850D6 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB03527145C45001850D6 /* UIImageViewExtensions.swift */; };
+		3DECB03827146C01001850D6 /* ExerciseDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECB03727146C01001850D6 /* ExerciseDetailsVM.swift */; };
 		98E4626CBD4A24A17D8667AF /* Pods_exercise_case_studyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C01A1619215D5C27D92464 /* Pods_exercise_case_studyTests.framework */; };
 		ABFC024ADFB6871845AFF84F /* Pods_exercise_case_study_exercise_case_studyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECC90F82EB285D64840B792 /* Pods_exercise_case_study_exercise_case_studyUITests.framework */; };
 		FA96FFE16AD87887C82B1550 /* Pods_exercise_case_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ABF79F75305EF99099D44C /* Pods_exercise_case_study.framework */; };
@@ -76,6 +77,7 @@
 		3DECB03027144F0E001850D6 /* ExerciseOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseOverviewCell.xib; sourceTree = "<group>"; };
 		3DECB03327145C20001850D6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		3DECB03527145C45001850D6 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		3DECB03727146C01001850D6 /* ExerciseDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsVM.swift; sourceTree = "<group>"; };
 		3FCB96EFC778DCA3324A2AB4 /* Pods-exercise_case_studyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exercise_case_studyTests.release.xcconfig"; path = "Target Support Files/Pods-exercise_case_studyTests/Pods-exercise_case_studyTests.release.xcconfig"; sourceTree = "<group>"; };
 		69C01A1619215D5C27D92464 /* Pods_exercise_case_studyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_exercise_case_studyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23F577ABAF2834E83B68AC2 /* Pods-exercise_case_study-exercise_case_studyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exercise_case_study-exercise_case_studyUITests.release.xcconfig"; path = "Target Support Files/Pods-exercise_case_study-exercise_case_studyUITests/Pods-exercise_case_study-exercise_case_studyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				3DECB01827144A07001850D6 /* ExerciseDetailsVC.swift */,
 				3DECB01927144A07001850D6 /* ExerciseDetailsVC.xib */,
+				3DECB03727146C01001850D6 /* ExerciseDetailsVM.swift */,
 			);
 			path = ExerciseDetails;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DECB03827146C01001850D6 /* ExerciseDetailsVM.swift in Sources */,
 				3DECB01E27144A3A001850D6 /* Exercise.swift in Sources */,
 				3D8C1DA7271428CE00F0AC13 /* ExerciseOverviewVC.swift in Sources */,
 				3DECB02927144AF7001850D6 /* EndPoint.swift in Sources */,

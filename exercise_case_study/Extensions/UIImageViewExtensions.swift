@@ -12,6 +12,7 @@ extension UIImageView {
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
+                        ImageCacheManager.shared.cache(image, for: url.absoluteString)
                         self?.image = image
                     }
                 }

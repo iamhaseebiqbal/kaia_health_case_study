@@ -5,6 +5,10 @@ class ExerciseOverviewVC: UIViewController {
     private var viewModel: ExerciseOverviewVM!// make non optional
     @IBOutlet private var tableView: UITableView!
     
+    var timer: Timer?
+    // Keeps reference to same VC for updating the UI
+    var detailsVC: ExerciseDetailsVC?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +22,11 @@ class ExerciseOverviewVC: UIViewController {
         })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -26,7 +35,43 @@ class ExerciseOverviewVC: UIViewController {
     }
     
     @IBAction func startTraining(_ sender: UIButton) {
+        showExerciseDetils(at: 0)
         
+        timer = Timer.scheduledTimer(timeInterval: viewModel.transitionSeconds,
+                                     target: self,
+                                     selector: #selector(transitionToNextExercise),
+                                     userInfo: nil,
+                                     repeats: true)
+        
+        // Stop timer on `cancel training`
+        detailsVC?.onCancelTraining = { [weak self] in
+            self?.timer?.invalidate()
+        }
+    }
+    
+    func showExerciseDetils(at row: Int) {
+        // If a VC is already presented, just update the UI
+        if presentedViewController != nil, presentedViewController == detailsVC {
+            detailsVC?.viewModel = viewModel.exterciseDetailsVM(for: row)
+            detailsVC?.configureVC()
+            return
+        }
+        
+        // Otherwise show new VC
+        let detailsVC = ExerciseDetailsVC(nibName: "ExerciseDetailsVC", bundle: nil)
+        detailsVC.viewModel = viewModel.exterciseDetailsVM(for: row)
+        detailsVC.modalPresentationStyle = .fullScreen
+        present(detailsVC, animated: true, completion: nil)
+        self.detailsVC = detailsVC
+    }
+    
+    @objc func transitionToNextExercise() {
+        if let currentIndex = viewModel.exercises.firstIndex(where: { $0.id == detailsVC?.viewModel?.exercise.id }),
+           viewModel.exercises.indices.contains(currentIndex + 1) {
+            showExerciseDetils(at: currentIndex + 1)
+            return
+        }
+        timer?.invalidate()
     }
     
 }
@@ -40,14 +85,15 @@ extension ExerciseOverviewVC: UITableViewDataSource {
         guard let aCell = tableView.dequeueReusableCell(withIdentifier: ExerciseOverviewCell.reuseIdentifier) as? ExerciseOverviewCell else {
             return UITableViewCell()
         }
-        aCell.configure(ExerciseOverviewCellVM(exercise: viewModel.exercises[indexPath.row], isMarkedAsFavorite: false)) // [TODO] fav state
-        // TODO [safe: ?]
+        aCell.configure(viewModel.viewModel(for: indexPath.row))
+        // TODO implement [safe:]? retrival from arrays
         return aCell
     }
-    
     
 }
 
 extension ExerciseOverviewVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showExerciseDetils(at: indexPath.row)
+    }
 }
