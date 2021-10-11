@@ -1,0 +1,6 @@
+framework module Pods_exercise_case_study_exercise_case_studyUITests {
+  umbrella header "Pods-exercise_case_study-exercise_case_studyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
